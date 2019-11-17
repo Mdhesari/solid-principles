@@ -9,3 +9,7 @@ S : single responsibility
 O : opened/closed
 
 L : liscov substitution
+
+I : Interface Segregation 
+
+D : 
