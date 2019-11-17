@@ -4,8 +4,8 @@ In this project I practice solid programming principles, introduced by uncle bob
 
 SOLID refers to :
 
-S : single responsibility principle
+S : single responsibility
 
-O : opened/closed principle
+O : opened/closed
 
-L : liscov substitution principle
+L : liscov substitution
