@@ -1,6 +1,14 @@
 
 <?php
 
+/**
+ * 
+ * (S) Single Responsibility Principle
+ * 
+ * This principles says : A class only and only should have one job and one task to do 
+ * 
+ */
+
 class Order
 {
 
