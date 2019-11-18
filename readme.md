@@ -52,8 +52,14 @@ This principle says : If a class extends an interface and it's not neccessary wh
 
 This is almsot related to open/closed principle and it says : top level modules should not be dependent on low level modules.
 
+    "It's not about using interface or either objects, it's about implementing classes the way we don't modify it's source code for low level data.
+
+    Instead we need to inject the data by the help of arguments."
+
 ### Thanks
 
 [Roocket Website By Hesam Mousavi helped me a lot](http://www.roocket.ir)
+
+[Garet Hellis conference video in UK was realy helpful and insightful](garethellis@gmail.com)
 
 Thank you for visiting this repository and take my apologize if there is anything wrong and please do not hesitate to share it with me on [mdhesari99@gmail.com](mdhesari@gmail.com)
