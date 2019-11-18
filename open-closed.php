@@ -4,7 +4,7 @@
  * 
  * (O) Opened/Closed Principle
  * 
- * This principle says : Classes should be opened for extensions but not for modifications, it means it has to be open for implementing new functionalities in future
+ * This principle says : Software entities should be opened for extensions but not for modifications, it means it has to be open for implementing new functionalities in future
  * 
  */
 

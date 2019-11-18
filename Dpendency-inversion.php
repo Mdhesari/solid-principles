@@ -4,7 +4,7 @@
      * 
      * (D) Dependency Inversion Principle
      * 
-     * This principle says : top level modules of the application should not be dependent on bottom level modules.
+     * This principle says : top level modules of the application should not be dependent on low level modules.
      * 
      * For solution we use dependency injection
      * 
