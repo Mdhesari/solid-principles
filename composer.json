@@ -1,4 +1,12 @@
 {
+    "name": "md/solid",
+    "description": "oop solid programming practices",
+    "authors": [
+        {
+            "name": "Mohammad Fazel",
+            "email": "mdhesari99@gmail.com"
+        }
+    ],
     "autoload": {
         "psr-4": {
             "app\\": "app"
