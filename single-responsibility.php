@@ -5,7 +5,9 @@
  * 
  * (S) Single Responsibility Principle
  * 
- * This principles says : A class only and only should have one job and one task to do 
+ * This principles says : A class only and only should have one job and one task to do.
+ * 
+ * Which means it should have one and only one reason to change
  * 
  */
 
