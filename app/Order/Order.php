@@ -3,6 +3,7 @@
 namespace app\Order;
 
 use app\Auth\Account;
+use app\Order\OrderProcessor;
 
 class Order
 {
@@ -11,6 +12,5 @@ class Order
 
         $this->amount = $amount;
         $this->account = $account;
-
     }
 }
