@@ -11,7 +11,7 @@ interface BillerInterface
 }
 
 class Account
-{ 
+{
     //
 }
 
@@ -25,7 +25,12 @@ class Order
     }
 }
 
-class OrderProcessor
+/**
+ * if we see here will understand that there is a wrong implementation which ignroes single responsibility principle
+ * 
+ * so here the solution is to create another class called OrderRepository and manage the logic and database operation over there.
+ */
+class Wrong_OrderProcessor
 {
 
     public function __construct(BillerInterface $biller)
@@ -58,17 +63,63 @@ class OrderProcessor
 
         $time = Carbon::now()->subMinutes(5);
 
-        dd($time);
-
         DB::table('orders')
             ->where('account', $order->account->id)
             ->where('created_at', '>=', $time);
     }
 }
 
-$time = Carbon::now()->subMinutes(5);
+class OrderRepository
+{
 
-        dd($time);
 
-echo now();
+    public function getRecentCount(Account $account)
+    {
 
+        $result = DB::table('orders')
+            ->where('account', $account->id)
+            ->where('created_at', '>=', Carbon::now()->subMinutes(5));
+
+        return $result;
+    }
+
+    public function log(Order $order)
+    {
+
+        $result = DB::table('orders')
+            ->insert(array(
+                'account' => $order->account->id,
+                'amount' => $order->amount,
+                'created_at' => Carbon::now(),
+            ));
+
+        return $result;
+    }
+}
+
+class OrderProcessor
+{
+
+    public function __construct(BillerInterface $biller, OrderRepository $order)
+    {
+
+        $this->biller = $biller;
+        $this->order = $order;
+    }
+
+    public function process(Order $order)
+    {
+
+        $exists = $this->order->getRecentCount($order->account);
+
+        if ($exists > 0) {
+
+            throw new Exception('Duplicate order likely.');
+        }
+
+        $this->biller->bill($order->account->id, $order->amount);
+
+        $this->order->log($order);
+    }
+
+}
