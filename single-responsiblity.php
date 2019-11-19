@@ -1,24 +1,8 @@
 <?php
 
-require_once 'vendor/autoload.php';
+require_once 'bootstrap.php';
 
 use Carbon\Carbon;
-
-@date_default_timezone_set('Asia/Tehran');
-
-function now()
-{
-
-    return date('Y-M-d h:m:s');
-}
-
-function parseTime($time_stamp)
-{
-
-    $date = new DateTime($time_stamp, new DateTimeZone('Asia/Tehran'));
-
-    return $date->getDate();
-}
 
 interface BillerInterface
 {
