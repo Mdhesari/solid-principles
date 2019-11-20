@@ -8,6 +8,13 @@ use app\Illuminate\OrderValidationInterface;
 class OrderSuspendedAccountValidator implements OrderValidationInterface
 {
 
+    /**
+     * Fetch required data from injected order repository and check if it exists so throw new error \Exception
+     *
+     * @param \app\Order\Order $order
+     *
+     * @return void/bool
+     */
     public function validate(Order $order)
     {
 
@@ -15,7 +22,7 @@ class OrderSuspendedAccountValidator implements OrderValidationInterface
 
             throw new Exception('The account is suspended.');
 
-            return false;   
+            return false;
         }
 
         return true;

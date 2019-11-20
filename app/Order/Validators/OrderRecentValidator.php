@@ -26,7 +26,7 @@ class OrderRecentValidator implements OrderValidationInterface
      *
      * @param \app\Order\Order $order
      *
-     * @return void
+     * @return void/bool
      */
     public function validate(Order $order)
     {
