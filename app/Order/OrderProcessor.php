@@ -8,6 +8,15 @@ use app\Illuminate\OrderRepositoryInterface;
 class OrderProcessor
 {
 
+    /**
+     * Inject dependencies and set properties
+     *
+     * @param  \app\Illuminate\BillerInterface $biller
+     * @param  \app\Order\Repository\OrderRepositoryInterface $order
+     * @param  array $validators
+     *
+     * @return void
+     */
     public function __construct(BillerInterface $biller, OrderRepositoryInterface $order, array $validators = [])
     {
 
@@ -16,6 +25,13 @@ class OrderProcessor
         $this->validators = $validators;
     }
 
+    /**
+     * process
+     *
+     * @param  \app\Order\Order $order
+     *
+     * @return void
+     */
     public function process(Order $order)
     {
 
