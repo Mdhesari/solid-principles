@@ -1,5 +1,7 @@
 ## Solid Programming principles (uncle Bob)
 
+* Version 2 is just only code for practice and won't work in reality if you run it on the server
+
 In this project I practice solid programming principles, introduced by uncle bob
 
 SOLID refers to :
@@ -36,6 +38,8 @@ Formulated by a woman called Barbara Liscov, states an object in a program shoul
 
  a class when inherit from the other class should almost look after exactly her father, unless inheriting the class is the wrong desicion.
 
+Objects should be replaceable with instances of their subtypes without altering the correctness of that program.
+
 For example :
 
     "If it looks like a duck, quacks like a dog, but needs batteries - you probably have the wrong abstraction"
@@ -45,6 +49,10 @@ Behaviour, Behaviour, Behaviour
 ### I : Interface Segregation
 
 This principle says : If a class extends an interface and it's not neccessary where class even does not use the methods of the interface, it's a mistake to use the interface for that class.
+
+Instead of having a fat interface containing methods not needed by all implementations, it is preferable to have several smaller interfaces that may implemented individually as needed.
+
+By breaking fat interfaces into samller, more focused contracts, consuming code can depend on the smaller interface, without creating dependencies on parts of the application it does not use.
 
     "Many client-specific interfaces are better than one general-purpose interface. Dan Akroyd"
 
