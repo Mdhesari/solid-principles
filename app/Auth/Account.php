@@ -2,7 +2,13 @@
 
 namespace app\Auth;
 
-class Account {
+class Account
+{
 
     //
+    public function isSuspended()
+    {
+
+        return true;
+    }
 }

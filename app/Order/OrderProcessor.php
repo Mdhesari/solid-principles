@@ -3,17 +3,18 @@
 namespace app\Order;
 
 use app\Illuminate\BillerInterface;
+use app\Illuminate\OrderRepositoryInterface;
 
 class OrderProcessor
 {
 
-    public function __construct(BillerInterface $biller, OrderRepository $order, array $validators = [])
+    public function __construct(BillerInterface $biller, OrderRepositoryInterface $order, array $validators = [])
     {
 
         $this->biller = $biller;
         $this->order = $order;
         $this->validators = $validators;
-    }   
+    }
 
     public function process(Order $order)
     {

@@ -2,14 +2,14 @@
 
 namespace app\Order\Validators;
 
+use app\Illuminate\OrderRepositoryInterface;
 use app\Illuminate\OrderValidationInterface;
 use app\Order\Order;
-use app\Order\OrderRepository;
 
 class OrderRecentValidator implements OrderValidationInterface
 {
 
-    public function __construct(OrderRepository $order)
+    public function __construct(OrderRepositoryInterface $order)
     {
         $this->orderRepo = $order;
     }
@@ -23,6 +23,7 @@ class OrderRecentValidator implements OrderValidationInterface
 
             throw new Exception('Duplicate order likely.');
 
+            return false;
         }
 
         return true;

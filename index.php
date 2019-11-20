@@ -4,7 +4,7 @@ require_once 'bootstrap.php';
 
 use app\Order\Order;
 use app\Order\OrderProcessor;
-use app\Order\OrderRepository;
+use app\Order\Repository\DatabaseRepository;
 use app\Order\OrderBiller;
 use app\Auth\Account;
 
@@ -14,7 +14,7 @@ $account = new Account;
 
 $order = new Order(5, $account);
 
-$order_repo = new OrderRepository;
+$order_repo = new DatabaseRepository;
 
 $biller = new OrderBiller(1, 5);
 

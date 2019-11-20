@@ -1,14 +1,15 @@
 <?php
 
-namespace app\Order;
+namespace app\Order\Repository;
 
 use app\Auth\Account;
 use Carbon\Carbon;
 use app\Helper\DB;
 
-class OrderRepository
-{
+use app\Illuminate\OrderRepositoryInterface;
 
+class DatabaseRepository implements OrderRepositoryInterface
+{
 
     public function getRecentCount(Account $account)
     {

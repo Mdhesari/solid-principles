@@ -14,6 +14,8 @@ class OrderSuspendedAccountValidator implements OrderValidationInterface
         if ($order->account->isSuspended()) {
 
             throw new Exception('The account is suspended.');
+
+            return false;   
         }
 
         return true;
