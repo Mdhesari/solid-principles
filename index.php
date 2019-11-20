@@ -2,7 +2,10 @@
 
 require_once 'bootstrap.php';
 
-use app\Order\Order;
+use app\Auth\Contact;
+use app\Auth\PasswordReminder;
+
+/* use app\Order\Order;
 use app\Order\OrderProcessor;
 use app\Order\Repository\DatabaseRepository;
 use app\Order\OrderBiller;
@@ -22,4 +25,8 @@ $recent_validator = new OrderRecentValidator($order_repo);
 
 $order_proccessor = new OrderProcessor($biller, $order_repo, [$recent_validator]);
 
-$order_proccessor->process($order);
+$order_proccessor->process($order); */
+
+$app = new PasswordReminder();
+
+$app->remind(new Contact, 'view');
