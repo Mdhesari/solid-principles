@@ -10,7 +10,7 @@ class DB
 {
     use Properties;
 
-    private $config_source = __DIR__ . '../config.php';
+    private $config_source = __DIR__ . '/../config.php';
 
     public function __construct($config_source = null)
     {

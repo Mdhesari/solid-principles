@@ -2,8 +2,10 @@
 
 require_once 'bootstrap.php';
 
+use app\Auth\Authenticator;
 use app\Auth\Contact;
 use app\Auth\PasswordReminder;
+use app\Helper\DBProvider;
 
 /* use app\Order\Order;
 use app\Order\OrderProcessor;
@@ -27,6 +29,8 @@ $order_proccessor = new OrderProcessor($biller, $order_repo, [$recent_validator]
 
 $order_proccessor->process($order); */
 
-$app = new PasswordReminder();
+$authProvider = new DBProvider;
 
-$app->remind(new Contact, 'view');
+$authenticator = new Authenticator($authProvider);
+
+$authenticator->authenticate(32);
