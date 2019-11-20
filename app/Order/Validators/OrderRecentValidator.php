@@ -9,11 +9,25 @@ use app\Order\Order;
 class OrderRecentValidator implements OrderValidationInterface
 {
 
+    /**
+     * Inject Dependencies
+     *
+     * @param \app\Illuminate\OrderRepositoryInterface $order
+     *
+     * @return void
+     */
     public function __construct(OrderRepositoryInterface $order)
     {
         $this->orderRepo = $order;
     }
 
+    /**
+     * Fetch required data from injected order repository and check if it exists so throw new error \Exception
+     *
+     * @param \app\Order\Order $order
+     *
+     * @return void
+     */
     public function validate(Order $order)
     {
 
