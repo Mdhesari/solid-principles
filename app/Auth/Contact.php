@@ -3,6 +3,11 @@
 namespace app\Auth;
 
 use app\Illuminate\RemindableInterface;
+/**
+ * 
+ * This class is only for testing and practicing
+ * 
+ */
 
 class Contact extends Eloquent implements RemindableInterface
 {
