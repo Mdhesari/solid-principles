@@ -8,8 +8,18 @@ use app\Order\OrderRepository;
 use app\Order\OrderBiller;
 use app\Auth\Account;
 
-$order = new Order(5, new Account);
+use app\Order\Validators\OrderRecentValidator;
 
-$order_proccessor = new OrderProcessor(new OrderBiller(1, 5), new OrderRepository);
+$account = new Account;
+
+$order = new Order(5, $account);
+
+$order_repo = new OrderRepository;
+
+$biller = new OrderBiller(1, 5);
+
+$recent_validator = new OrderRecentValidator($order_repo);
+
+$order_proccessor = new OrderProcessor($biller, $order_repo, [$recent_validator]);
 
 $order_proccessor->process($order);

@@ -7,21 +7,23 @@ use app\Illuminate\BillerInterface;
 class OrderProcessor
 {
 
-    public function __construct(BillerInterface $biller, OrderRepository $order)
+    public function __construct(BillerInterface $biller, OrderRepository $order, array $validators = [])
     {
 
         $this->biller = $biller;
         $this->order = $order;
-    }
+        $this->validators = $validators;
+    }   
 
     public function process(Order $order)
     {
 
-        $exists = $this->order->getRecentCount($order->account);
+        foreach ($this->validators as $validator) {
 
-        if ($exists > 0) {
+            if (!$validator->validate()) {
 
-            throw new Exception('Duplicate order likely.');
+                return false;
+            }
         }
 
         $this->biller->bill($order->account->id, $order->amount);
