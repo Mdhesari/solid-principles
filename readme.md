@@ -50,11 +50,19 @@ This principle says : If a class extends an interface and it's not neccessary wh
 
 ### D : Dependency Inversion
 
-This is almsot related to open/closed principle and it says : top level modules should not be dependent on low level modules.
+This is almsot related to open/closed principle and it says : hight level modules and code should not be dependent on low level code.
 
     "It's not about using interface or either objects, it's about implementing classes the way we don't modify it's source code for low level data.
 
     Instead we need to inject the data by the help of arguments."
+
+##### High-level and Low-level Code
+
+    "Low-level code, implements basic operations like reading files from a disk or interacting with database on the other hand high-level code encapsulates complex logic and relies on the low-level code to function but should not be directly coupled to it.
+
+    instead the high-level code should be dependent on an abstraction that sits on top of the low-level code, such as an interface.
+
+    Not only that but also low-level code should be depend upon an abstraction."
 
 ### Thanks
 
